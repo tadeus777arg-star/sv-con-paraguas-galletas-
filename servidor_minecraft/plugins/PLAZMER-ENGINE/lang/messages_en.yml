@@ -1,0 +1,98 @@
+# Here you can create your own custom placeholders to use it in language config.
+# Key = Placeholder, Value = Replacer.
+Placeholders:
+  '%gray%': '#aaa8a8'
+  '%green%': '#74ea31'
+  '%red%': '#ea3131'
+Command:
+  Usage:
+  - <! prefix:"false" !>
+  - '#aaa8a8'
+  - '#ea3131Error: #aaa8a8Wrong arguments!'
+  - '#ea3131Usage: #ead931/%command_label% #ea9631%command_usage%'
+  - '#aaa8a8'
+  Help:
+    List:
+    - <! prefix:"false" !>
+    - '#aaa8a8'
+    - '  #ead931&l%plugin_name_localized%#aaa8a8 - #ead931&lCommands:'
+    - '#aaa8a8'
+    - '  #ea3131&l<> #aaa8a8- Required, #74ea31&l[] #aaa8a8- Optional.'
+    - '#aaa8a8'
+    - '  #ead931/%command_label% #ea9631%command_usage% #aaa8a8- %command_description%'
+    - '#aaa8a8'
+    Desc: Show help page.
+  CheckPerm:
+    Desc: Print player permission info.
+    Usage: <player>
+  About:
+    Desc: Some info about the plugin.
+  Reload:
+    Desc: Reload the whole plugin.
+    Done: All data & configuration has been reloaded!
+Time:
+  Day: '%s%d.'
+  Hour: '%s%h.'
+  Min: '%s%min.'
+  Sec: '%s%sec.'
+Other:
+  'Yes': '#74ea31Yes'
+  'No': '#ea3131No'
+  Any: Any
+  None: None
+  Never: Never
+  OneTimed: One-Timed
+  Unlimited: Unlimited
+  Infinity: ∞
+Error:
+  Player:
+    Invalid: '#ea3131Player not found.'
+    Inventory:
+      Full: '#ea3131Your Inventory &lis full#ea3131!'
+    Item:
+      Drop:
+        Under:
+          You: '#ea3131Items &ldrop to the ground#ea3131!'
+  World:
+    Invalid: '#ea3131World not found.'
+  Number:
+    Invalid: '#ea3131%num% is not a valid number.'
+  Time:
+    Format:
+      Invalid: '#ea3131%time% is not a valid time format.'
+  Permission:
+    Deny: '#ea3131You don''t have permissions to do that!'
+  Command:
+    Self: '#ea3131This command can not be used on yourself.'
+    Sender: '#ea3131This command is for players only.'
+Editor:
+  Tip:
+    Exit: '<! prefix:"false" !><? showText:"#aaa8a8Click me or type #ea3131#exit" run_command:"/#exit" ?>#aaa8a8Click here to #ea3131[Exit Edit Mode]</>'
+  Title:
+    Done: '#74ea31&lDone!'
+    Edit: '#74ea31&l< Edit Mode >'
+    Error: '#ea3131&lError!'
+  Error:
+    Number:
+      Generic: '#aaa8a8Invalid number!'
+      NotInt: '#aaa8a8Expecting #ea3131whole#aaa8a8 number!'
+    Enum: '#aaa8a8Invalid Input!'
+  Message:
+    Value_Helper: '#ea9631[ #ead931Value Helper#ea9631 ]'
+    Click_Selection: '#aaa8a8Click me to select #3196ea'
+    Page:
+      Previous: '#aaa8a8Previous Page'
+      Next: '#aaa8a8Next Page'
+  Generic:
+    Close:
+      Name: '#ea3131(✕) Exit'
+      Lore: []
+    Return:
+      Name: '#aaa8a8(↓) #e8f2f2Return'
+      Lore: []
+    NextPage:
+      Name: '#aaa8a8(→) #e8f2f2Next Page'
+      Lore: []
+    PreviousPage:
+      Name: '#aaa8a8(←) #e8f2f2Previous Page'
+      Lore: []

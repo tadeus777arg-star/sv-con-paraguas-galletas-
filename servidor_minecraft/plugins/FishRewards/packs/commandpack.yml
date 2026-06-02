@@ -1,0 +1,28 @@
+Pack:
+  name: ExampleDonatePack
+  displayname: DonatePack
+  custommodeldata: 0
+  chance: 5
+  permissions: "fishrewards.use" # permissions to open pack
+  effect: # Firework color and type
+    type: BALL    # available types BALL, BALL_LARGE, STAR,BURST,CREEPER
+    colors:
+      - YELLOW
+      - BLUE
+  #chestlore:
+  #  - "Line 1"
+  #  - "Line 2"
+  rewards:
+    '1':
+      type: command
+      command: lp user {player} parent add vip
+      chance: 100
+      description: get vip permissions
+    '2':
+      type: command
+      command: lp user {player} parent add premium
+      chance: 100
+    '3':
+      type: command
+      command: lp user {player} parent add deluxe
+      chance: 100

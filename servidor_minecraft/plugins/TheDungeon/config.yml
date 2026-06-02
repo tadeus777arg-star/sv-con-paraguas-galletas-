@@ -1,0 +1,85 @@
+Plugin:
+  # Command names that will be registered as main plugin commands.
+  # Do not leave this empty. Split multiple names with a comma.
+  Command_Aliases: thedungeons,dungeons
+  # Localized plugin name. It's used in messages and with internal placeholders.
+  Name: TheDungeon
+  # Plugin prefix. Used in messages.
+  # You can use %plugin_name_localized% placeholder for a plugin name.
+  Prefix: '#ead931%plugin_name%#aaa8a8 » '
+  # Sets the plugin language.
+  # It will use language config from the '/lang/' sub-folder for specified language code.
+  # By default it's 'en', so 'messages_en.yml' will be used.
+  Language: en
+Settings:
+  Dungeon:
+    # Sets whether players need to hold the key in their main hand to open the dungeon.
+    Hold_Key_To_Open: false
+  Debug:
+    # Enables plugin debugging
+    Other: false
+    # Enables dungeon tick debugging
+    Tick: false
+    # Enables dungeon chest tick debugging
+    Tick_Chest: false
+    # Enables module debugging
+    Module: false
+  Generator:
+    Location:
+      Search:
+        # List of per-world range values for searching locations in.
+        # Put your actual worlds here, especially if your dungeon uses a world other than the default world.
+        # Note:
+        # The Use_As_Blacklist setting was designed for your convenience.
+        # You can choose to use the list either as a whitelist or a blacklist.
+        Ranges:
+          world:
+            Start_X: 0
+            Start_Z: 0
+            Distance_Min: 5000
+            Distance_Max: 5000
+            Material:
+              Use_As_Blacklist: true
+              List:
+              - WATER
+              - LAVA
+            Biome:
+              Use_As_Blacklist: true
+              List: []
+            Only_Generated_Chunks: true
+Editor:
+  Title:
+    # Title of the announce editor menu
+    Announce: Announce Editor
+    # Title of the dungeon editor menu
+    Dungeon: Dungeon Settings
+    # Title of the mobs editor menu
+    Mob: Mobs Settings
+    # Title of the key editor menu
+    Key: Key Settings
+Mobs:
+  # Sets entity display name format for internal AMA mobs.
+  # Placeholders: %mob_name%
+  DisplayName_Format: '#ffeea2%mob_name%'
+  Kill_Rewards:
+    # Enables/Disables the Mob Kill Rewards feature.
+    Enabled: true
+    # Here you can create custom rewards for mob kills on the dungeon.
+    # For commands, use '%player_name%' placehodler for a player name.
+    Table:
+      default:
+        Items:
+          default:
+            Item:
+              Material: GOLD_NUGGET
+              Name: '&6Default item'
+            Chance: 50.0
+        Commands: []
+      default_skeleton:
+        Items:
+          default:
+            Item:
+              Material: GOLD_NUGGET
+              Name: '&6Default item'
+            Chance: 50.0
+        Commands: []

@@ -1,0 +1,86 @@
+# This is the main configuration file for OPItems
+# Some options may impact gameplay and could lead to lag and server crashes, so use
+# with caution and make sure you know what each option does before configuring.
+#
+#
+#  You can reset the config by deleting the config.yml file and restarting your server.
+
+PrivatePocketDimensionPerformanceModeActivated: false
+EnableItemsForNewerVersions: true
+DisableOPItemsCrafting: false
+AllowCraftKnockyTheStick: true
+AllowCraftTheAntiDamage: true
+AllowCraftBlockySword: true
+AllowCraftPickyPick: true
+AllowCraftPiercer: true
+AllowCraftNightVisor: true
+AllowCraftWaterHelmet: true
+AllowCraftLauncher: true
+AllowCraftFireShoes: true
+AllowCraftWandOfBoom: true
+AllowCraftWandOfMassiveBoom: true
+AllowCraftWandOfInvisibility: true
+AllowCraftSpeedLeggings: true
+AllowCraftSuperSponge: true
+AllowCraftLavaSponge: true
+AllowCraftEnderpealer: true
+AllowCraftTNTDetonator: true
+AllowCraftCursedSword: true
+AllowCraftInfWaterBucket: true
+AllowCraftProtectiveElytra: true
+AllowCraftPrivatePocketDimension: true
+AllowCraftAntiExplosionHelmet: true
+AllowCraftAndActivatedWandOfHome: true
+AllowCraftTNTBow: true
+OPItemsSpecificBStatsDisable: false
+AllowCraftOtherItems: true
+CursedSwordEnabled: true
+EnableCraftWandOfWarden: true
+EnablePiercer: true
+EnableJumpyBoots: true
+PrivatePocketDimensionEnabled: true
+EnablePortal2Go: true
+EnableSkullImitator: true
+EnableLandmine: true
+EnableLandminePerformanceMode: false
+EnableRiptider: true
+ActivateWandofBlocks: true
+ActivateWorkstation: true
+AllowBoomer: true
+AllowEndsword: true
+AllowBlitzer: true
+AllowCrafter: true
+AllowBlazer: true
+AllowBower: true
+AllowPigCannon: true
+AllowFlyFeather: true
+AllowAntiFall: true
+AllowHookOfVelectory: true
+AllowCraftWandofBlocks: true
+PrivatePocketDimensionOreSpawnChancePerGeneratedStoneBlock: 50
+AntiExplosionHelmetAntiExploEnchLevel: 75
+TNTBowTNTAmount: 50
+HookOfVelectoryCDms: 999
+BowerCDms: 176
+BlitzerCDms: 666
+PigCannonCDms: 333
+TeleportSwordCDms: 100
+enderPearlSwordCDms: 1000
+PiercerDamageLevel: 3
+PiercerKnockbackLevel: 3
+wand_of_(massive)_boom_cooldown_MilliSeconds: 1000
+launcher_cooldown_MilliSeconds: 4000
+Wand_of_Boom_Explosion_Strength: 10
+Wand_of_Massive_Boom_Explosion_Strength: 20
+CraftedKnockyTheStickKnockbackEnchantmentLevel: 10
+CraftedBlockySwordDamageAllEnchantmentLevel: 17
+CraftedTheAntiDamageProtectionEnchantmentLevel: 75
+CraftedPickyPickDigSpeedEnchantmentLevel: 1200
+CraftedPickyPickLootBonusBlocksEnchantmentLevel: 5
+SuperSpongeClearRadius: 20
+UUID-DoNotChange: v23dPMITOGV5PhuzG8kjV4v4JrBpiF8qXQJPro0SKok6Za210mCCz3Xkc+8lxnpAU2rq2QMNfhlKXbI5mBAVS/KXsYkrGYwCcQUpk0c6UNwm+X6thvcPKwIh6CTuZH3ltEQ4
+EnableAutomaticPeriodicItemsRemove: false
+AutomaticPeriodicItemsRemoveWarningDurationSecs: 60
+AutomaticPeriodicItemsRemovePeriodeInMinutes: 30
+CLoggerMode: 0
+CLoggerFlushIntervallSec: 300

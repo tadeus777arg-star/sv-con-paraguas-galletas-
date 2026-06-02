@@ -1,0 +1,44 @@
+# InfernalMobsPlus — default configuration
+spawn-chance: 0.05   # 5% chance for a natural spawn to become infernal
+loot:
+  emerald:
+    material: EMERALD
+    min-multiplier: 3
+    max-multiplier: 9
+    drop-chance-per-tier: 1.0
+    only-drop-if-player-kill: false
+
+  diamond:
+    material: DIAMOND
+    min-multiplier: 1
+    max-multiplier: 3
+    drop-chance-per-tier: 1.0
+    only-drop-if-player-kill: false
+
+  netherite-scrap:
+    material: NETHERITE_SCRAP
+    min-multiplier: 1
+    max-multiplier: 1
+    drop-chance-per-tier: 0.2
+    only-drop-if-player-kill: true
+
+messages:
+  death-broadcast: "§6[InfernalMobs+] §eA {tier} {mob} was slain by {killer}!"
+  tier-names:
+    1: "Infernal"
+    2: "Super Infernal"
+
+# Chance for a mob to become SUPER Infernal (overrides normal spawn chance)
+super-infernal-chance: 0.0001  # 1 in 10,000
+
+powers:
+  windstep-chance: 0.3   # 30 % chance each second (adjust to taste)
+
+allowed-infernal-mobs:
+  - SPIDER
+  - ZOMBIE
+  - CREEPER
+  - WITHER_SKELETON
+  - SILVERFISH
+  - SLIME
+  - WARDEN

@@ -1,0 +1,24 @@
+# #------------------------------------------------------------------------------------------
+# #                 author: Imperialroma10
+# #     our project: https://www.curseforge.com/members/imperialroma10/projects
+# #------------------------------------------------------------------------------------------
+# #      In discord we can help with customization of plugins, as well as if you found a bug write us
+# #              Discord : http://discord.gg/fsEZEnE58g
+# #------------------------------------------------------------------------------------------
+# #              If you like our plugin support us with a cup of coffee
+# #             Donate:   https://www.patreon.com/c/PluginDEV/membership
+#
+# #        Please leave a review of the plugin https://www.spigotmc.org/resources/111966/
+# #------------------------------------------------------------------------------------------
+
+enable-plugin-prefix: true
+plugin-prefix: '&9&l[&aFishRewards&9] &b'
+caught-fish-message: 'You caught [pack] '
+open-pack-message: You opened [pack]
+not-enough-space: You have not enough space!
+enable-pack-message: true
+item-reward-message: '&bYou received a &a{itemname} &bamount: &a{count}'
+entity-reward-message: '&4There are entities hovering nearby.'
+command-reward-message: '&bYou received the reward, the command was executed.'
+no-right: '&bYou don''t have permission'
+full-inventory: '&cDid not fit in inventory, item was discarded nearby'

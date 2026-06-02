@@ -1,0 +1,104 @@
+# ,KWN0d;.             :kx;.
+# :XMMMMWO;           lNMMNd.
+# :XMMMMMMX:         cXMMMMNl
+# :XMMMMMMMO.       :XMMMMMMk.
+# :XMMMMMMMK,      :KMMMMMMWo
+# :XMMMMMMMK,     ;KMMMMMMWk.
+# :XMMMMMMMO.    ,0MMMMMMNx.
+# :XMMMMMMWd.  ,o0MMMMMMXl.
+# :XMMMMMMX;  'OWWMMMMWk,
+# :XMMMMMMXc.;OWMMMMMNo.
+# :XMMMMMMMNXNMMMMMMMWOc.
+# :XMMMMMMMMMMMMMMMMMMMMXx,
+# :XMMMMMMMMMWWWMMMMMMMMMMXo.
+# :XMMMMMWKxc;,;:cxKWMMMMMMNo
+# :XMMMMNx.        .xWMMMMMMK,
+# :XMMMMXc.        .cXMMMMMMX;
+# :XMMMMMN0OOOOO0OO0NMMMMMMMO.
+# 'OMMMMMMMMMMMMMMMMMMMMMMW0;
+# ,ONMMMMMMMMMMMMMMMMMMWKo.
+# .l0WMMMMMMMMMMMMMWN0o.
+#
+# Plugin by Hasiradoo & Squareshox - RabbitTale Studio .co
+# Version: 1.1.0
+
+# ======================================
+# GENERAL SETTINGS
+# ======================================
+settings:
+  # Available languages:
+  # - English
+  # - More languages coming soon!
+  language: English
+  
+  # Enable debug mode for additional logging
+  # Only enable this when troubleshooting issues
+  debug: false
+  
+  # How often the plugin saves data to disk
+  # Lower values = More frequent saves but higher server load
+  # Default: 300 (5 minutes)
+  save-interval: 300
+  max-lootboxes: 5
+  default-animation: HORIZONTAL
+
+# ======================================
+# ANIMATION SETTINGS
+# ======================================
+animations:
+  # How often particles are updated (in ticks)
+  # 20 ticks = 1 second
+  # Lower values = Smoother animations but higher server load
+  particle-update-interval: 5
+  
+  # Default animation type for new lootboxes
+  # Available types:
+  # - HORIZONTAL: Items spin horizontally
+  # - CIRCLE: Items spin in a circle
+  default-type: HORIZONTAL
+  
+  particles:
+    # Enable/disable particle effects
+    enabled: true
+    
+    # Maximum number of particle effects per lootbox
+    # Higher values may impact performance
+    max-per-lootbox: 3
+
+# ======================================
+# DATABASE SETTINGS
+# ======================================
+database:
+  url: jdbc:postgresql://aws-0-eu-central-1.pooler.supabase.com:5432/postgres?user=plugin_reader.dzairwsnlqeikuetowla&password=cV!Tvb.HVncsypjT3T9r2eXWm
+  
+  # Connection pool settings
+  pool:
+    maxSize: 5
+    idleTimeout: 30000
+
+# ======================================
+# PLUGIN INTEGRATIONS
+# ======================================
+integrations:
+  # Oraxen integration for custom items
+  # Requires Oraxen plugin to be installed
+  oraxen: true
+  
+  # LuckPerms integration for permissions
+  # Requires LuckPerms plugin to be installed
+  luckperms: true
+  
+  # Economy integration
+  economy:
+    # Available economy plugins:
+    # - VAULT: Use Vault-compatible economy plugins
+    # - PLAYER_POINTS: Use PlayerPoints plugin
+    type: VAULT
+    
+    # Enable/disable economy features
+    enabled: true
+
+# ======================================
+# Need help? Join our Discord!
+# https://discord.gg/RfBydgJpmU
+# ======================================

@@ -1,0 +1,107 @@
+ver: 1.2
+update: true
+#It automationally make backup
+
+menus:
+  main-menu:
+    title: "§3Admin Menu"
+    packs-item:
+      title: "§bPacks"
+      #description:
+      #  - "line1"
+      #  - "line2"
+    reload-pack-item:
+      title: "§bReload packs"
+      description:
+        - "§aif there were changes by changing the configuration file"
+  packs-menu:
+    title: "§3Packs"
+    list-template-items:
+      title: "{title}"
+      list:
+        - "§aDrop chance§f: §b{chance}§a%"
+        - "§aFile configuration: §b{filename}.yml"
+    creation-pack:
+      title: "Create new pack"
+    back-item:
+      title: "Back"
+  edit-pack-menu:
+    title: "Edit {packname}"
+    add-chance-item:
+      title: "§bAdd §a5% §bchance"
+    subruct-chance-item:
+      title: "§bSubtruct §45% §bchance"
+    chance-status-item:
+      title: "§bChance §a{chance}%"
+    change-pack-name-item:
+      title: "§bChange displayname"
+    rewards-item:
+      title: "§bRewads item"
+    remove-pack-item:
+      title: "§bRemove pack"
+    reload-pack-item:
+      title: "§bReload pack"
+    save-pack-item:
+      title: "§bSave"
+    get-pack-item:
+      title: "§bGet pack"
+    back-item:
+      title: "§cBack"
+  rewards-menu:
+    title: "Rewards"
+    list-template-items:
+      - "§6Chance {1}%"
+      - "§3Left click to edit"
+      - "§3Left click + shift to remove"
+    save-item:
+      title: "§bSave"
+    back-item:
+      title: "§cBack"
+    additem-item:
+      title: "§6Add an Item"
+    addentity-item:
+      title: "§6Add an entity"
+    addcommand-item:
+      title: "§6Add command"
+  put-item-menu:
+    title: "§3Put the Item"
+    back-item:
+      title: "§cBack"
+    add-to-pack-item:
+      title: "§3Add this item to Pack"
+  edit-item-menu:
+    title: "Item Edit"
+    edit-name-item:
+      title: "§3Edit item name"
+    add-amount-item:
+      title: "§3Add amount"
+    edit-drop-chance-item:
+      title: "§3Item drop chance {1}%"
+      description:
+        - "§2Left click add 5%"
+        - "§2Right click subtract 5%"
+    subtruct-amount-item:
+      title: "§3Subtruct"
+    back-item:
+      title: "§cBack"
+  entity-menu:
+    back-item:
+      title: "§cBack"
+    title: "Select Entity"
+    entity-items:
+      description:
+        - "§3Left Click to Add"
+  edit-entity-menu:
+    title: "Edit entity {1}"
+    back-item:
+      title: "§cBack"
+    edit-entity-amount:
+      title: "§6Amount: {1}"
+      description:
+        - "§3Left Click +1"
+        - "§3Right Click -1"
+    spawn-chance-item:
+      title: "§6Chance {1}%"
+      description:
+        - "§3Left Click +5%"
+        - "§3Right Click -5%"

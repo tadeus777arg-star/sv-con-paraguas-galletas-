@@ -1,0 +1,7 @@
+message:
+  reload: '&aPlugin reloaded'
+# Experience value that is given to the player (random from 0 to 3), zero to disable give exp
+expcount: 3
+# Here you need to enter the name of the type (NOT SEED) and the plant. You can view it by pressing F3.
+block_list:
+- wildflowers

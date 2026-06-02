@@ -1,0 +1,30 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 192.168.191.94
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1778390278604
+  login: 1778390201366
+money: '0'
+last-account-name: chocolinpy
+logoutlocation:
+  world: 4da55348-7d7b-4f75-933c-af6816792a9c
+  world-name: world
+  x: 14.332364246784932
+  y: 80.0
+  z: 19.509102902235437
+  yaw: 14.9920654296875
+  pitch: 1.799372911453247

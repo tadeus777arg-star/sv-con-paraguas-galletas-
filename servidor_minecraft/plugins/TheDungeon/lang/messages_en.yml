@@ -1,0 +1,937 @@
+# Here you can create your own custom placeholders to use it in language config.
+# Key = Placeholder, Value = Replacer.
+Placeholders:
+  '%gray%': '#aaa8a8'
+  '%green%': '#74ea31'
+  '%red%': '#ea3131'
+Command:
+  Editor:
+    Desc: Open the dungeon and key editor.
+  Drop:
+    Usage: <dungeon_id> <world> <x> <y> <z>
+    Desc: Place a dungeon at the specified location in the world.
+    Done: '#aaa8a8Dungeon #ead931%dungeon_name%#aaa8a8 has been placed at coordinates #ead931%location_x%, %location_y%, %location_z%#aaa8a8 in world #ead931%location_world%#aaa8a8.'
+    Error: '#ea3131An error occurred while trying to spawn a #e39fff%dungeon_name%#ea3131! See the error in the console'
+  Delete:
+    Usage: <dungeon_id>
+    Desc: Despawn a specific or all dungeon.
+    Done: '#aaa8a8Dungeon #ead931%dungeon_name%#aaa8a8 has been despawned'
+  Key:
+    Desc: Manage player keys.
+    Usage: '[help]'
+    Give:
+      Usage: <player> <key> <amount> [-s]
+      Desc: Give a key to a player.
+      Done: '#aaa8a8Given #ead931x%amount%#aaa8a8 keys of type #ead931%key_name%#aaa8a8 to player #ead931%player_name%#aaa8a8.'
+      Notify: '#aaa8a8You have received #ead931x%amount%#aaa8a8 keys of type #ead931%key_name%#aaa8a8!'
+    GiveAll:
+      Usage: <key> <amount> [-s]
+      Desc: Give a key to all online players.
+      Done: '#aaa8a8Given #ead931x%amount%#aaa8a8 keys of type #ead931%key_name%#aaa8a8 to all players.'
+    Take:
+      Usage: <player> <key> <amount> [-s]
+      Desc: Take a key from a player.
+      Done: '#aaa8a8Taken #ead931x%amount%#aaa8a8 keys of type #ead931%key_name%#aaa8a8 from player #ead931%player_name%#aaa8a8.'
+      Notify: '#aaa8a8You have lost #fd5e5ex%amount% %key_name%#aaa8a8.'
+    Set:
+      Usage: <player> <key> <amount> [-s]
+      Desc: Set the number of keys for a player.
+      Done: '#aaa8a8The number of keys of type #ead931%key_name%#aaa8a8 for player #ead931%player_name%#aaa8a8 has been changed to #ead931x%amount%#aaa8a8.'
+      Notify: '#aaa8a8The number of your keys of type #ead931%key_name%#aaa8a8 has been changed to #ead931x%amount%#aaa8a8.'
+Dungeon:
+  Error:
+    Invalid: '#ea3131Invalid dungeon!'
+    Exists: '#ea3131A dungeon with that ID already exists!'
+  Key:
+    Error:
+      Invalid: '#ea3131Invalid key!'
+      Exists: '#ea3131A key with that ID already exists!'
+  Open:
+    Error:
+      NoKey:
+      - <! type:"titles:20:80:20" !>#ea3131&l
+      - Oops!#aaa8a8
+      - You don't have the key for this Dungeon!
+      NoHoldKey:
+      - <! type:"titles:20:80:20" !>#ea3131&l
+      - Oops!#aaa8a8
+      - You must be holding the key to open the Dungeon!
+Editor:
+  Enter:
+    DisplayName: '#aaa8a8Enter #74ea31[Displayed Name]'
+    Schematic: '#aaa8a8Enter #74ea31[Dungeon Schematic]'
+    Access:
+      PSAPI:
+        Class: '#aaa8a8Enter #74ea31[ProSkillAPI (Fabled) Class]'
+      Not_Access_Message: '#aaa8a8Enter #74ea31[Not Access Message (Kyori miniMessage)]'
+    Text: '#aaa8a8Enter #74ea31text #aaa8a8or #74ea31leave empty#aaa8a8...'
+  Generic:
+    Enter:
+      Name: '#aaa8a8Enter #74ea31[Display Name]'
+  Dungeon:
+    Enter:
+      Hologram:
+        Text: '#aaa8a8Enter #74ea31[Text]'
+        Offset: '#aaa8a8Enter #74ea31[Offset Value]'
+      Id: '#aaa8a8Enter #74ea31[Dungeon ID]'
+      KeyId: '#aaa8a8Enter #74ea31[Key Identifier]'
+      Blocks:
+        Material: '#aaa8a8Enter #74ea31[Chest-Block Material]'
+      World: '#aaa8a8Enter #74ea31world name#aaa8a8...'
+    Error:
+      Blocks:
+        Material:
+          Not_Found: '#ea3131Material not found, try again!'
+      Access:
+        PSAPI:
+          Class:
+            Not_Found: '#ea3131Class not found, try again!'
+      World:
+        Not_Found: '#ea3131World not found!'
+    Write:
+      Positive_Value: '#74ea31Write positive value!'
+      Value: '#74ea31#aaa8a8Enter #74ea31value#aaa8a8...'
+    Object:
+      Name: '#ead931&l%dungeon_name% &7(ID: &f%dungeon_id%&7)'
+      Lore:
+      - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Configure#aaa8a8)'
+      - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Delete #ea3131(No Undo)#aaa8a8)'
+    Create:
+      Name: '#ead931&lNew Dungeon'
+      Lore: []
+    Change:
+      Name:
+        Name: '#ead931&lName'
+        Lore:
+        - '#aaa8a8Sets the displayed name of the dungeon'
+        - '#aaa8a8Used in messages and menus'
+        - ''
+        - '#ead931&lCurrent:'
+        - '#aaa8a8%dungeon_name%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+      Keys:
+        Name: '#ead931&lAttached Keys'
+        Lore:
+        - '#aaa8a8Specifies which keys can be used to open this dungeon.'
+        - ''
+        - '#ead931&lCurrent:'
+        - '#ead931▪ #aaa8a8ID List: #ead931%dungeon_key_ids%'
+        - ''
+        - '#ea3131&lWarning:'
+        - '#ea3131▪ #aaa8a8If no keys are set, the dungeon can be opened without them!'
+        - '#ea3131▪ #aaa8a8If incorrect keys are provided, you won''t be able to open the dungeon!'
+        - ''
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Attach Key#aaa8a8)'
+        - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Clear#aaa8a8)'
+      Effects:
+        Name: '#ead931&lEffects'
+        Lore:
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+      Rewards:
+        Name: '#ead931&lRewards'
+        Lore:
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+      Region:
+        Name: '#ead931&lRegion'
+        Lore:
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+      Settings:
+        Name: '#ead931&lMain Settings'
+        Lore:
+        - '#ead931▪ #aaa8a8Enabled: #ead931%dungeon_enabled%'
+        - '#ead931▪ #aaa8a8Minimal online: #ead931%dungeon_minimal_online%'
+        - '#aaa8a8  and more in menu'
+        - ''
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+      Particles:
+        Name: '#ead931&lParticles'
+        Lore:
+        - '#aaa8a8#ea3131Coming soon..'
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+    Party:
+      Name: '#ead931&lParty'
+      Lore:
+      - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+    Reboot:
+      Name: '#ead931&lReboot the dungeon'
+      Lore:
+      - '#aaa8a8#ea9631Reboot: reset the waiting time,'
+      - '#aaa8a8#ea9631delete the dungeon if it is'
+      - '#aaa8a8#ea9631spawned and start it again!'
+      - ''
+      - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Restart#aaa8a8)'
+    World:
+      Name: '#ead931&lDungeon World'
+      Lore:
+      - '#aaa8a8#e39fff%dungeon_world%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+    Settings:
+      Chest:
+        Settings:
+          Name: '#ead931&lChest Block Settings'
+          Lore:
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+        Object:
+          Name: '#ead931&l#e39fff%dungeon_state_name%'
+          Lore:
+          - '#aaa8a8Sets the duration of'
+          - '#aaa8a8this state in seconds'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#aaa8a8%dungeon_editor_state_time%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+        One_Key:
+          Name: '#ead931&lOne key for chests'
+          Lore:
+          - '#aaa8a8Sets whether only one key per chest'
+          - '#aaa8a8will be used to use it.'
+          - '#aaa8a8&eIf yes, then the player activates the chest'
+          - '#aaa8a8&ewill be counted for all subsequent players'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Value: #ead931%dungeon_use_one_key_for_chest%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Menu:
+          Big:
+            Name: '#ead931&lBig Chest'
+            Lore:
+            - '#aaa8a8Sets the chest (rewards menu) will be big.'
+            - '#aaa8a8The large has 54 slots,'
+            - '#aaa8a8and the small one has 27.'
+            - ''
+            - '#ead931&lCurrent:'
+            - '#ead931▪ #aaa8a8Big: #ead931%dungeon_big_chest%'
+            - ''
+            - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+          Separate:
+            Name: '#ead931&lSeparate chest block gui'
+            Lore:
+            - '#aaa8a8Sets whether there will be a separate menu'
+            - '#aaa8a8for each block of the chest or'
+            - '#aaa8a8one menu for all blocks'
+            - '#ead931&lCurrent:'
+            - '#ead931▪ #aaa8a8Value: #ead931%dungeon_separate_chest_block_gui%'
+            - ''
+            - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Open_Type:
+          Name: '#ead931&lChest Opening Type'
+          Lore:
+          - '#aaa8a8Sets the type of opening for the dungeon'
+          - '#aaa8a8#74ea31CLICK#aaa8a8 - Opens the dungeon on click'
+          - '#aaa8a8#74ea31TIMER#aaa8a8 - Opens the dungeon based on a timer'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Type: #ead931%dungeon_open_type%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Limit:
+          Name: '#ead931&lChest block limit'
+          Lore:
+          - '#aaa8a8Sets a limit on the number of chest blocks'
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Value: #ead931%dungeon_chest_block_limit%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Chest:
+          Material:
+            Name: '#ead931&lChest Block'
+            Lore:
+            - '#aaa8a8Sets what material will be used as a chest'
+            - '#aaa8a8that players will activate and open'
+            - ''
+            - '#ead931&lCurrent:'
+            - '#ead931▪ #aaa8a8Material: #ead931%dungeon_chest_block%'
+            - ''
+            - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+            - '#aaa8a8(#e8f2f2Drag & Drop#aaa8a8 to Quick change#aaa8a8)'
+      Menu:
+        Random_Slots:
+          Name: '#ead931&lRandom Slots'
+          Lore:
+          - '#aaa8a8Sets whether the items in the dungeon'
+          - '#aaa8a8chest will be in random slots'
+          - '#aaa8a8or will be filled gradually'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Random: #ead931%dungeon_random_slots%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+      Enabled:
+        Name: '#ead931&lEnabled dungeon'
+        Lore:
+        - '#aaa8a8Sets whether the'
+        - '#aaa8a8dungeon is enabled or disabled'
+        - '#ead931&lCurrent:'
+        - '#ead931▪ #aaa8a8Enabled: #ead931%dungeon_enabled%'
+        - ''
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+      Click:
+        Name: '#ead931&lClick Timer'
+        Lore:
+        - '#aaa8a8Sets whether the timer will be started'
+        - '#aaa8a8when opening if the'
+        - '#aaa8a8opening type is click'
+        - ''
+        - '#ead931&lCurrent:'
+        - '#ead931▪ #aaa8a8Use: #ead931%dungeon_click_timer%'
+        - ''
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+      Minimal_Online:
+        Name: '#ead931&lMinimal Online'
+        Lore:
+        - '#aaa8a8Sets the minimum allowed online'
+        - '#aaa8a8players for spawn'
+        - ''
+        - '#ead931&lCurrent:'
+        - '#ead931▪ #aaa8a8Value: #ead931%dungeon_minimal_online%'
+        - ''
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+      Let_Players:
+        Name: '#ead931&lLet players when close'
+        Lore:
+        - '#aaa8a8Sets whether the player will'
+        - '#aaa8a8be able to enter the dungeon if it is still closed.'
+        - '#aaa8a8&cBe careful with this setting,'
+        - '#aaa8a8&cas if you set a ''false'','
+        - '#aaa8a8&cthe plugin will push the player 3 blocks back'
+        - ''
+        - '#ead931&lCurrent:'
+        - '#ead931▪ #aaa8a8Value: #ead931%dungeon_let_players_when_close%'
+        - ''
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+      Mobs:
+        Name: '#ead931&lDungeon Mobs'
+        Lore:
+        - '#aaa8a8Sets which mobs will be spawned in'
+        - '#aaa8a8the dungeon when the dungeon appears'
+        - '#ead931&lCurrent:'
+        - '#aaa8a8#aaa8a8(Mob Id: Mob count)'
+        - '#aaa8a8'
+        - '#aaa8a8%dungeon_settings_mobs%'
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Add#aaa8a8)'
+        - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Clear#aaa8a8)'
+      Generation:
+        Name: '#ead931&lGeneration Settings'
+        Lore:
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+        Type:
+          Name: '#ead931&lType of Generation'
+          Lore:
+          - '#aaa8a8Sets what type of generation the dungeon will have'
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Type: #ead931%dungeon_generation_type%'
+          - '#aaa8a8'
+          - '#aaa8a8#e8f2f2Static #aaa8a8-#d4d9d8 the position of this dungeon will always be the same'
+          - '#aaa8a8#e8f2f2Dynamic #aaa8a8-#d4d9d8 the position of the dungeon will always be'
+          - '#aaa8a8#d4d9d8random based on the settings of the generator'
+          - '#aaa8a8#ea3131(not ready) #e8f2f2 Updatable #aaa8a8-#d4d9d8 the position of the dungeon will be static,'
+          - '#aaa8a8#d4d9d8but its schematics will be created and deleted according to the timer settings'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Location:
+          Name: '#ead931&lGeneration Location'
+          Lore:
+          - '#aaa8a8Set the location to be used if'
+          - '#aaa8a8the generation type is #ead931STATIC'
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Location: #ead931%dungeon_generation_location%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change to your location#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Clear#aaa8a8)'
+      Access:
+        Name: '#ead931&lAccess Settings'
+        Lore:
+        - '#ead931▪ #aaa8a8Enabled: #ead931%dungeon_access_enabled%'
+        - '#ead931▪ #aaa8a8ProSkillAPI Classes: #ead931%dungeon_access_psapi_classes%'
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+        Enabled:
+          Name: '#ead931&lEnabled'
+          Lore:
+          - '#aaa8a8If the parameters are configured'
+          - '#aaa8a8and the setting is enabled, then'
+          - '#aaa8a8the plugin will check the data and'
+          - '#aaa8a8do not allow players to enter the dungeon region'
+          - '#aaa8a8without the necessary class'
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Enabled: #ead931%dungeon_access_enabled%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Not_Access_Message:
+          Name: '#ead931&lNot Access Message'
+          Lore:
+          - '#aaa8a8The message about the lack of access'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#aaa8a8%dungeon_access_not_access_message%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        PSAPI:
+          Class:
+            Name: '#ead931&lProSkillAPI (Fabled) Classes'
+            Lore:
+            - '#aaa8a8List of classes that are'
+            - '#aaa8a8necessary to enter the dungeon'
+            - ''
+            - '#ead931&lCurrent:'
+            - '#aaa8a8%dungeon_access_psapi_classes%'
+            - ''
+            - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to add)'
+            - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to remove all)'
+    Modules:
+      Settings:
+        Name: '#ead931&lModules Settings'
+        Lore:
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+      Commands:
+        Settings:
+          Name: '#ead931&lCommands Settings'
+          Lore:
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+        Object:
+          Name: '#ead931&l#e39fff%dungeon_editor_stage_name%'
+          Lore:
+          - '#aaa8a8Sets the commands for the given stage,'
+          - '#aaa8a8which will be executed as soon as the dungeon moves to it'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#aaa8a8%dungeon_editor_stage_commands%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Add Command#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Clear #ea3131(No Undo)#aaa8a8)'
+      Announce:
+        Settings:
+          Name: '#ead931&lAnnounce Settings'
+          Lore:
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+        Object:
+          Name: '#ead931&l#e39fff%dungeon_editor_stage_name%'
+          Lore:
+          - '#aaa8a8Preview:'
+          - '#aaa8a8#aaa8a8AnnounceId [Time]'
+          - '#aaa8a8%dungeon_editor_stage_announces%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Add#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Left#aaa8a8 to Clear #ea3131(No Undo)#aaa8a8)'
+      Holograms:
+        Settings:
+          Name: '#ead931&lHologram Settings'
+          Lore:
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+        Object:
+          Name: '#ead931&l#e39fff%dungeon_state_name%'
+          Lore:
+          - '#aaa8a8Sets the message that will be'
+          - '#aaa8a8over the chest block in this state'
+          - ''
+          - '#ead931&lCurrent:'
+          - '%dungeon_editor_hologram_text%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Add Line#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Clear #ea3131(No Undo)#aaa8a8)'
+        Offset:
+          Y:
+            Name: '#ead931&lHologram Y Offset'
+            Lore:
+            - '#aaa8a8Sets the Y offset for'
+            - '#aaa8a8hologram location'
+            - ''
+            - '#ead931&lCurrent:'
+            - '#ead931▪ #aaa8a8Y Offset: #ead931%dungeon_hologram_chest_offset_y%'
+            - ''
+            - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+      Schematics:
+        Settings:
+          Name: '#ead931&lSchematics Settings'
+          Lore:
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+        List:
+          Name: '#ead931&lList of Schematics'
+          Lore:
+          - '#aaa8a8Sets the list of schematics to be'
+          - '#aaa8a8randomly selected for the dungeon.'
+          - '#aaa8a8#ea3131You cannot leave the list empty if'
+          - '#aaa8a8#ea3131you have this module enabled!'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#aaa8a8%schematics_list%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Add Schematic#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Left#aaa8a8 to Clear #ea3131(No Undo)#aaa8a8)'
+        Ignore_Air:
+          Name: '#ead931&lIgnore Air Blocks'
+          Lore:
+          - '#aaa8a8Sets whether the schematic space will replace'
+          - '#aaa8a8air with blocks from the schematic.'
+          - '#aaa8a8If set false, the schematic will only fill'
+          - '#aaa8a8with air without ignoring other blocks'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Enabled: #ead931%schematics_ignore_air%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Underground:
+          Name: '#ead931&lUnderground'
+          Lore:
+          - '#aaa8a8Sets whether the dungeon'
+          - '#aaa8a8will spawn underground or'
+          - '#aaa8a8on the surface'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Underground: #ead931%schematics_underground%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+      Effects:
+        Object:
+          Name: '#ead931&l%effect_name%'
+          Lore:
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Duration: #ead931%effect_duration%'
+          - '#ead931▪ #aaa8a8Amplifier: #ead931%effect_amplifier%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change duration#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Change amplifier#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Delete #ea3131(No Undo)#aaa8a8)'
+        Create:
+          Name: '#ead931&lCreate Effect'
+          Lore:
+          - '#aaa8a8Create a new potion effect for the dungeon.'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Create#aaa8a8)'
+        Sort:
+          Name: '#ead931&lEffects Sorting'
+          Lore:
+          - '#aaa8a8Automatically sorts effects in the specified order.'
+          - ''
+          - '#aaa8a8(#e8f2f2[Slot 1]#aaa8a8 to by duration#aaa8a8)'
+          - '#aaa8a8(#e8f2f2[Slot 2]#aaa8a8 to by amplifier#aaa8a8)'
+          - '#aaa8a8(#e8f2f2[Slot 3]#aaa8a8 to by name#aaa8a8)'
+      Region:
+        Name:
+          Name: '#ead931&lName'
+          Lore:
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8: #ead931%region_name%'
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+          - ''
+        Enabled:
+          Name: '#ead931&lRegion status'
+          Lore:
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Enabled: #ead931%region_enabled%'
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+          - ''
+        Radius:
+          Name: '#ead931&lRadius'
+          Lore:
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8: #ead931%region_radius%'
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+          - ''
+        Flags:
+          Name: '#ead931&lFlags'
+          Lore:
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8List: #ead931'
+          - '#aaa8a8%region_flags%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Add#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Clear#aaa8a8)'
+      Reward:
+        Object:
+          Name: '#ead931&l%reward_id%'
+          Lore:
+          - '#aaa8a8Chance: &f%reward_chance%%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Configure#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Left#aaa8a8 to Move Forward#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Move Backward#aaa8a8)'
+          - '#aaa8a8(#e8f2f2[Q] Drop Key#aaa8a8 to Delete #ea3131(No Undo)#aaa8a8)'
+        Create:
+          Name: '#ead931&lCreate Reward'
+          Lore:
+          - '#aaa8a8Create a new reward for the dungeon.'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Manual Creation#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Drag & Drop#aaa8a8 to Quick Creation#aaa8a8)'
+        Sort:
+          Name: '#ead931&lReward Sorting'
+          Lore:
+          - '#aaa8a8Automatically sorts rewards in the specified order.'
+          - ''
+          - '#aaa8a8(#e8f2f2[Slot 1]#aaa8a8 to by chance#aaa8a8)'
+          - '#aaa8a8(#e8f2f2[Slot 2]#aaa8a8 to by type#aaa8a8)'
+          - '#aaa8a8(#e8f2f2[Slot 3]#aaa8a8 to by name#aaa8a8)'
+        Item:
+          Name: '#ead931&lItem'
+          Lore:
+          - '#aaa8a8The item that will be added to the chest'
+          - ''
+          - '#aaa8a8(#e8f2f2Drag & Drop#aaa8a8 to Replace Item#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Get a Copy#aaa8a8)'
+        Chance:
+          Name: '#ead931&lChance'
+          Lore:
+          - '#aaa8a8Sets the chance of adding this item to the chest'
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Chance: #ead931%reward_chance%%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+        Amount:
+          Name: '#ead931&lItem Amount'
+          Lore:
+          - '#aaa8a8Sets the amount of the item.'
+          - '#aaa8a8The final amount will be within these values'
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Min: #ead931%reward_amount_min%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+          - '#ead931▪ #aaa8a8Max: #ead931%reward_amount_max%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+      Rewards:
+        Limits:
+          Name: '#ead931&lReward Limit'
+          Lore:
+          - '#aaa8a8Sets limits on the amount of items in the chest.'
+          - '#aaa8a8The final amount will be within these values'
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Min: #ead931%reward_limit_min%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+          - '#ead931▪ #aaa8a8Max: #ead931%reward_limit_max%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+      Key:
+        Object:
+          Name: '#ead931&l%key_name%#aaa8a8 (ID: #3196ea%key_id%#aaa8a8)'
+          Lore:
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Right#aaa8a8 to Delete #ea3131(No Undo)#aaa8a8)'
+        Create:
+          Name: '#ead931&lCreate Key'
+          Lore:
+          - '#aaa8a8Create a new key for dungeons.'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Create#aaa8a8)'
+        Name:
+          Name: '#ead931&lDisplayed Name'
+          Lore:
+          - '#aaa8a8Sets the displayed name of the key.'
+          - '#aaa8a8Used in menus and messages.'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Displayed Name: #ead931%key_name%'
+          - ''
+          - '#ea3131&lWarning:'
+          - '#ea3131▪ #aaa8a8This is #ea3131NOT#aaa8a8 the actual name of the key!'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Item:
+          Name: '#ead931&lItem'
+          Lore:
+          - '#aaa8a8Sets the physical item of the key.'
+          - ''
+          - '#ea9631&lNotes:'
+          - '#ea9631▪ #aaa8a8Use an item with a predefined name, description, etc.'
+          - ''
+          - '#aaa8a8(#e8f2f2Drag & Drop#aaa8a8 to Replace#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Get#aaa8a8)'
+      Mobs:
+        Object:
+          Name: '#ead931&l%mob_name%#aaa8a8 (&f%mob_id%#aaa8a8)'
+          Lore:
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Edit#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Delete #ea3131(No Undo)#aaa8a8)'
+        Create:
+          Name: '#ead931&lCreate Mob'
+          Lore: []
+        Name:
+          Name: '#ead931&lDisplay Name'
+          Lore:
+          - '#aaa8a8Sets mob display name and'
+          - '#aaa8a8whether or not this name is'
+          - '#aaa8a8always visible.'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Name: #ead931%mob_name%'
+          - '#ead931▪ #aaa8a8Is Visible: #ead931%mob_name_visible%'
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change Name#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Toggle Visibility#aaa8a8)'
+        Entity_Type:
+          Name: '#ead931&lEntity Type'
+          Lore:
+          - '#aaa8a8Sets mob entity type.'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Type: #ead931%mob_entity_type%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Attributes:
+          Name: '#ead931&lMob Attributes'
+          Lore:
+          - '#aaa8a8Sets mob default attributes.'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#aaa8a8%mob_attributes_base%'
+          - ''
+          - '#ea9631&lNotes:'
+          - '#aaa8a8Base attribute with zero value means'
+          - '#aaa8a8that default mob''s attribute value'
+          - '#aaa8a8won''t be changed.'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Left#aaa8a8 to Clear All#aaa8a8)'
+        Potions:
+          Name: '#ead931&lMob Potions'
+          Lore:
+          - '#aaa8a8Sets mob default potion effects.'
+          - ''
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Duration: #ead931'
+          - '#aaa8a8%mob_potion_effect_duration%'
+          - '#ead931▪ #aaa8a8Value: #ead931'
+          - '#aaa8a8%mob_potion_effect_value%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change Duration#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Change Value#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Shift-Left#aaa8a8 to Clear All#aaa8a8)'
+        Equipment:
+          Name: '#ead931&lMob Equipment'
+          Lore:
+          - '#aaa8a8Items to be equipped on a mob.'
+          - ''
+          - '#ea3131&lWarning:'
+          - '#ea3131▪ #aaa8a8Boots → Legs → Chest → Head → Hand → Off Hand'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+        Styles:
+          Name: '#ead931&lMob Styles'
+          Lore:
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+        Silent:
+          Name: '#ead931&lMob Silent'
+          Lore:
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Silent: #ead931%mob_silent%'
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+        Style_Object:
+          Name: '#ead931&lStyle Type: #74ea31%mob_style_type%'
+          Lore:
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Value: #ead931%mob_style_value%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Remove#aaa8a8)'
+        Rider:
+          Name: '#ead931&lMob Rider'
+          Lore:
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Rider: #ead931%mob_rider_id%'
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+          - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Clear#aaa8a8)'
+      Party:
+        Enabled:
+          Name: '#ead931&lParty Enabled'
+          Lore:
+          - '#ead931&lCurrent:'
+          - ''
+          - '#ead931▪ #aaa8a8Enabled: #ead931%party_enabled%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+        Size:
+          Name: '#ead931&lParty Size'
+          Lore:
+          - '#ead931&lCurrent:'
+          - '#ead931▪ #aaa8a8Size: #ead931%party_size%'
+          - ''
+          - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+    Module:
+      Object:
+        Name: '#ead931&l#e39fff%module_id%'
+        Lore:
+        - '#aaa8a8Sets whether this module is enabled/disabled'
+        - '#aaa8a8'
+        - '#aaa8a8The RED item means that the module cannot be'
+        - '#aaa8a8enabled/disabled based on the'
+        - '#aaa8a8settings of your generation type'
+        - ''
+        - '#ead931&lCurrent:'
+        - '#ead931▪ #aaa8a8Enabled: #ead931%editor_module_enabled%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+    Stages:
+      Settings:
+        Name: '#ead931&lStage Settings'
+        Lore:
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Navigate#aaa8a8)'
+      Object:
+        Name: '#ead931&l#e39fff%dungeon_editor_stage_name%'
+        Lore:
+        - '#aaa8a8Sets the time period for'
+        - '#aaa8a8this stage of the dungeon'
+        - '#aaa8a8'
+        - '#aaa8a8#e8f2f2Description:'
+        - '#aaa8a8%dungeon_editor_stage_description%'
+        - ''
+        - '#ead931&lCurrent:'
+        - '#ead931▪ #aaa8a8Time: #ead931%dungeon_editor_stage_time%'
+        - ''
+        - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Change#aaa8a8)'
+  Reward:
+    Enter:
+      Id: '#aaa8a8Enter #74ea31[Reward Identifier]'
+      Chance: '#aaa8a8Enter #74ea31[Chance]'
+      UniLimit: '#aaa8a8Enter #74ea31[Min] [Max]'
+      UniAmount: '#aaa8a8Enter #74ea31[Min] [Max]'
+      Command: '#aaa8a8Enter #74ea31[Command]'
+    Error:
+      Create:
+        Exist: '#ea3131A reward with this identifier already exists!'
+    Commands:
+      Name: '#ead931&lCommands'
+      Lore:
+      - '#aaa8a8All of the following commands will'
+      - '#aaa8a8be executed from the #e8f2f2console'
+      - '#aaa8a8when the chest is opened.'
+      - ''
+      - '#ead931&lCurrent:'
+      - '#aaa8a8%reward_commands%'
+      - ''
+      - '#aaa8a8#ead931&lPlaceholders:'
+      - '#ead931▪ #aaa8a8PlaceholderAPI: #ead931All of them.'
+      - '#ead931▪ #aaa8a8%player_name%: #ead931For player name.'
+      - ''
+      - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to add)'
+      - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to remove all)'
+  Effect:
+    Enter:
+      Type: '#aaa8a8Enter #74ea31[PotionEffect Type]'
+      Duration: '#aaa8a8Enter #74ea31[Duration]'
+      Amplifier: '#aaa8a8Enter #74ea31[Amplifier]'
+  Mob:
+    Enter:
+      Create: '#aaa8a8Enter #74ea31unique #aaa8a8mob #74ea31identifier#aaa8a8...'
+      Type: '#aaa8a8Enter #74ea31entity type#aaa8a8...'
+      Attribute: '#aaa8a8Enter #74ea31attribute #aaa8a8and #74ea31value#aaa8a8...'
+      Id: '#aaa8a8Enter #74ea31mob id #aaa8a8and#74ea31amount of#aaa8a8...'
+      Potion: '#aaa8a8Enter #74ea31potion #aaa8a8and #74ea31value#aaa8a8...'
+      Style: '#aaa8a8Enter #74ea31value#aaa8a8...'
+    Error:
+      Exist: '#ea3131Mob already exists!'
+  Announce:
+    Enter:
+      Create: '#aaa8a8Enter #74ea31unique #aaa8a8announce #74ea31identifier#aaa8a8...'
+    Error:
+      Exist: '#ea3131Announce already exists!'
+    Editor:
+      Name: '#ead931&lAnnounce Editor'
+      Lore: []
+    Object:
+      Name: '#ead931&l%announce_id%'
+      Lore:
+      - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Edit#aaa8a8)'
+      - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Delete #ea3131(No Undo)#aaa8a8)'
+    Messages:
+      Name: '#ead931&lMessages'
+      Lore:
+      - '#aaa8a8Sets the text of the announcement.'
+      - '#ead931&lCurrent:'
+      - '#aaa8a8%announce_messages%'
+      - ''
+      - '#aaa8a8(#e8f2f2Left-Click#aaa8a8 to Add Line#aaa8a8)'
+      - '#aaa8a8(#e8f2f2Right-Click#aaa8a8 to Clear Lines #ea3131(No Undo)#aaa8a8)'
+    Global:
+      Name: '#ead931&lGlobal Announce'
+      Lore:
+      - '#aaa8a8If false, then the announcement'
+      - '#aaa8a8will be only in the world set in the dungeon'
+      - '#aaa8a8%announce_global%#aaa8a8 (#e8f2f2Left-Click#aaa8a8)'
+    Icon:
+      Name: '#ead931&lIcon in List Menu'
+      Lore:
+      - '#aaa8a8(#e8f2f2Drag & Drop#aaa8a8 to Replace#aaa8a8)'
+    Create:
+      Name: '#ead931&lNew Announce'
+      Lore: []
+  Announce_And_Time:
+    Enter: '#aaa8a8Enter #74ea31announce id #aaa8a8and #74ea31time [1,2,..]#aaa8a8...'
+    Error: '#ea3131Announce not found!'
+  Keys:
+    Name: '#ead931&lKeys'
+    Lore: []
+  Mobs:
+    Name: '#ead931&lMob Editor'
+    Lore: []
+Messages:
+  Error:
+    Dungeon:
+      Editor:
+        Value:
+          Not_Correct: '#ea3131Value is not correct!'
+        Schematic:
+          Not_Valid: '#ea3131The schematic you specified does not contain a chest block!'
+          Not_Contains_Chest: '#ea3131The schematic you specified has empty Chest Material (%dungeon_chest_block%)'
+  Dungeon:
+    Backtrack_When_Close: '#ea3131You cannot enter the dungeon while it is closed!'
+    Backtrack_Not_Party: '#ea3131To enter this dungeon, you need to be #74ea31%party_size%#ea3131 players or more&l!'
+Stage:
+  Freeze:
+    Description:
+    - '#aaa8a8The freezing stage.'
+    - '#aaa8a8All the dungeons that are'
+    - '#aaa8a8at this stage are waiting for their turn'
+  Check:
+    Description:
+    - '#aaa8a8The module check stage.'
+    - '#aaa8a8Location generation & etc.'
+  Preapre:
+    Description:
+    - '#aaa8a8The stage of preparation'
+    - '#aaa8a8for creation in the world.'
+    - '#aaa8a8Here you can notify players that'
+    - '#aaa8a8the dungeon will soon be available in the world'
+  Closed:
+    Description:
+    - '#aaa8a8The stage when the dungeon'
+    - '#aaa8a8has just spawned and'
+    - '#aaa8a8is closed to entry'
+  Waiting_Players:
+    Description:
+    - '#aaa8a8The waiting stage,'
+    - '#aaa8a8when players can enter and run around'
+    - '#aaa8a8the dungeon without additional modules'
+  Opening:
+    Description:
+    - '#aaa8a8The stage of the opening of the dungeon,'
+    - '#aaa8a8when the chests will be filled'
+  Opened:
+    Description:
+    - '#aaa8a8The dungeon is open,'
+    - '#aaa8a8the modules are activated,'
+    - '#aaa8a8we are playing'
+  Deleting:
+    Description: '#aaa8a8Module cleaning stage'
+  Cancelled:
+    Description: '#aaa8a8Called when something goes wrong'
+  Rebooted:
+    Description: '#aaa8a8Rebooting the dungeon'
+MobStyleType:
+  BABY: Baby
+  SHEEP_COLOR: Sheep Color
+  HORSE_COLOR: Horse Color
+  HORSE_STYLE: Horse Style
+  FOX_TYPE: Fox Type
+  CREEPER_CHARGE: Creeper Charge
+  SLIME_SIZE: Slime Size
+  PHANTOM_SIZE: Phantom Size
+  LLAMA_COLOR: Llama Color
+  PARROT_VARIANT: Parrot Variant
+  RABBIT_TYPE: Rabbit Type
+  CAT_TYPE: Cat Type
+  MUSHROOM_VARIANT: Mushroom Variant
+  VILLAGER_PROFESSION: Villager Profession
+  ZOMBIE_VILLAGER_PROFESSION: Zombie Villager Profession
+DungeonStage:
+  FREEZE: Freeze
+  CHECK: Check
+  PREPARE: Prepare
+  CLOSED: Closed
+  WAITING_PLAYERS: Waiting Players
+  OPENING: Opening
+  OPENED: Opened
+  DELETING: Deleting
+  CANCELLED: Cancelled
+  REBOOTED: Rebooted
+ChestState:
+  WAITING: Waiting
+  COOLDOWN: Cooldown
+  CLOSED: Closed
+  OPENED: Opened
+  DELETED: Deleted
+GenerationType:
+  STATIC: Static
+  DYNAMIC: Dynamic

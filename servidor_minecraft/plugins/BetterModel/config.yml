@@ -1,0 +1,17 @@
+debug:
+  hitbox: false
+  exception: false
+module:
+  model: true
+  player-animation: true
+metrics: true
+sight-trace: true
+item: leather_horse_armor
+max-sight: 45
+min-sight: 5
+lock-on-play-animation: true
+namespace: bettermodel
+pack-type: folder # folder, zip
+build-folder-location: BetterModel/build
+disable-generating-legacy-models: false
+follow-mob-invisibility: true

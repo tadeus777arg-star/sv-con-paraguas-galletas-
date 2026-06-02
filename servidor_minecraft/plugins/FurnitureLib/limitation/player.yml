@@ -1,0 +1,25 @@
+# This is the PlayerLimitation file
+# You can limit the max amount of Furnitures each Player
+# total.enable = (bool) | set default value for each project
+# total.global = (bool) | override the project limit and force use total.amount for each project
+# ----------------------------------------------
+# These Limitation type support permission Kits!
+# PermissionKit:
+# 	<kitName>:
+# 		chair: -1
+# 		total:
+# 			enable: false
+# 			amount: -1
+# ----------------------------------------------
+# the permission for these kit is furniture.limit.player.<kitName>
+
+PlayerLimit:
+  projects:
+    Skull1: 10
+    Grave3: 10
+    Grave2: 10
+    Grave1: 10
+  total:
+    enable: false
+    amount: -1
+    global: false
